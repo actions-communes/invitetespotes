@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Share the Event</title>
+    <title>Partage l'événement'</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -31,7 +31,7 @@
     </style>
   </head>
   <body>
-    <h1>Invite Your Friends to [Event Name]!</h1>
+    <h1>Invite tes amis à [...........]!</h1>
     <p>
       Use the buttons below to share the event with your friends via your
       preferred platform:
@@ -71,9 +71,10 @@
         textarea.select();
         document.execCommand("copy");
         document.body.removeChild(textarea);
-        alert(
-          "Message copied to clipboard. Now you can paste it in Instagram DM."
-        );
+        alert("Message copié. Redirection vers instagram...");
+
+        // Redirection vers Instagram
+        window.location.href = "https://www.instagram.com/";
       }
     </script>
   </body>
