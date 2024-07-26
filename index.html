@@ -57,8 +57,24 @@
     >
       <img src="icons/sms.png" alt="SMS" /> Share via SMS
     </a>
-    <a class="button" href="https://www.instagram.com/" target="_blank">
-      <img src="icons/instagram.png" alt="Instagram" /> Share on Instagram
-    </a>
+    <button class="button" onclick="copyToClipboard()">
+      <img src="icons/instagram.png" alt="Instagram" /> Copy Message for
+      Instagram DM
+    </button>
+    <script>
+      function copyToClipboard() {
+        const message =
+          "Hello! Join me at [Event Name] on [Event Date] at [Event Location]. It's going to be amazing! Here's the link to register: [Registration Link]. Hope to see you there!";
+        const textarea = document.createElement("textarea");
+        textarea.value = message;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        alert(
+          "Message copied to clipboard. Now you can paste it in Instagram DM."
+        );
+      }
+    </script>
   </body>
 </html>
