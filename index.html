@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Partage l'événement'</title>
+    <title>Partage l'événement</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -17,8 +17,8 @@
         border: none;
         border-radius: 5px;
         text-decoration: none;
-        background-color: #007bff;
-        color: #fff;
+        background-color: #eb5f32;
+        color: #ffffff;
         font-size: 16px;
         cursor: pointer;
       }
@@ -31,50 +31,56 @@
     </style>
   </head>
   <body>
-    <h1>Invite tes amis à [...........]!</h1>
+    <h1>Invite tes amis à Vaour !</h1>
+    <p>Message type : Viens à Vaour c'est cool !</p>
     <p>
-      Use the buttons below to share the event with your friends via your
-      preferred platform:
+      Sélectionne la plateforme avec laquelle tu veux partager le message en
+      cliquant sur les boutons ci-dessous :
     </p>
     <a
       class="button"
-      href="https://wa.me/?text=Hello%20!%20Join%20me%20at%20[Event%20Name]%20on%20[Event%20Date]%20at%20[Event%20Location].%20It's%20going%20to%20be%20amazing%20!%20Here's%20the%20link%20to%20register:%20[Registration%20Link].%20Hope%20to%20see%20you%20there%20!"
+      href="https://wa.me/?text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
       target="_blank"
     >
-      <img src="icons/whatsapp.png" alt="WhatsApp" /> Share on WhatsApp
+      <img src="icons/whatsapp.png" alt="WhatsApp" /> WhatsApp
     </a>
     <a
       class="button"
-      href="https://t.me/share/url?url=[Registration%20Link]&text=Hello%20!%20Join%20me%20at%20[Event%20Name]%20on%20[Event%20Date]%20at%20[Event%20Location].%20It's%20going%20to%20be%20amazing%20!%20Hope%20to%20see%20you%20there%20!"
+      href="https://t.me/share/url?url=[Registration%20Link]&text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20À%20bientôt!"
       target="_blank"
     >
-      <img src="icons/telegram.png" alt="Telegram" /> Share on Telegram
+      <img src="icons/telegram.png" alt="Telegram" /> Telegram
     </a>
     <a
       class="button"
-      href="sms:?&body=Hello%20!%20Join%20me%20at%20[Event%20Name]%20on%20[Event%20Date]%20at%20[Event%20Location].%20It's%20going%20to%20be%20amazing%20!%20Here's%20the%20link%20to%20register:%20[Registration%20Link].%20Hope%20to%20see%20you%20there%20!"
+      href="sms:?&body=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
       target="_blank"
     >
-      <img src="icons/sms.png" alt="SMS" /> Share via SMS
+      <img src="icons/sms.png" alt="SMS" /> SMS
     </a>
-    <button class="button" onclick="copyToClipboard()">
-      <img src="icons/instagram.png" alt="Instagram" /> Copy Message for
-      Instagram DM
+    <button class="button" onclick="copyToClipboard('instagram')">
+      <img src="icons/instagram.png" alt="Instagram" /> Instagram
+    </button>
+    <button class="button" onclick="copyToClipboard('messenger')">
+      <img src="icons/messenger.png" alt="Messenger" /> Messenger
     </button>
     <script>
-      function copyToClipboard() {
+      function copyToClipboard(platform) {
         const message =
-          "Hello! Join me at [Event Name] on [Event Date] at [Event Location]. It's going to be amazing! Here's the link to register: [Registration Link]. Hope to see you there!";
+          "Viens à Vaour c'est cool ! Rejoins moi à l'événement le [Event Date] à [Event Location]. C'est vraiment génial ! Voici le lien pour s'inscrire: [Registration Link]. À bientôt!";
         const textarea = document.createElement("textarea");
         textarea.value = message;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand("copy");
         document.body.removeChild(textarea);
-        alert("Message copié. Redirection vers instagram...");
+        alert("Message copié. Redirection vers " + platform + "...");
 
-        // Redirection vers Instagram
-        window.location.href = "https://www.instagram.com/";
+        if (platform === "instagram") {
+          window.location.href = "https://www.instagram.com/";
+        } else if (platform === "messenger") {
+          window.location.href = "https://www.messenger.com/";
+        }
       }
     </script>
   </body>
