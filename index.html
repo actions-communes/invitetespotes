@@ -10,6 +10,11 @@
         text-align: center;
         margin-top: 50px;
       }
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
       .button {
         display: inline-block;
         margin: 10px;
@@ -21,6 +26,9 @@
         color: #ffffff;
         font-size: 16px;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        width: 120px;
       }
       .button img {
         width: 24px;
@@ -28,42 +36,56 @@
         vertical-align: middle;
         margin-right: 8px;
       }
+      .p_left {
+        text-align: left;
+      }
+      @media (max-width: 600px) {
+        .buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+        .button {
+          width: 120px;
+        }
+      }
     </style>
   </head>
   <body>
     <h1>Invite tes amis à Vaour !</h1>
     <p>Message type : Viens à Vaour c'est cool !</p>
-    <p>
+    <p class="p_left">
       Sélectionne la plateforme avec laquelle tu veux partager le message en
       cliquant sur les boutons ci-dessous :
     </p>
-    <a
-      class="button"
-      href="https://wa.me/?text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
-      target="_blank"
-    >
-      <img src="icons/whatsapp.png" alt="WhatsApp" /> WhatsApp
-    </a>
-    <a
-      class="button"
-      href="https://t.me/share/url?url=[Registration%20Link]&text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20À%20bientôt!"
-      target="_blank"
-    >
-      <img src="icons/telegram.png" alt="Telegram" /> Telegram
-    </a>
-    <a
-      class="button"
-      href="sms:?&body=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
-      target="_blank"
-    >
-      <img src="icons/sms.png" alt="SMS" /> SMS
-    </a>
-    <button class="button" onclick="copyToClipboard('instagram')">
-      <img src="icons/instagram.png" alt="Instagram" /> Instagram
-    </button>
-    <button class="button" onclick="copyToClipboard('messenger')">
-      <img src="icons/messenger.png" alt="Messenger" /> Messenger
-    </button>
+    <div class="buttons">
+      <a
+        class="button"
+        href="https://wa.me/?text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
+        target="_blank"
+      >
+        <img src="icons/whatsapp.png" alt="WhatsApp" /> WhatsApp
+      </a>
+      <a
+        class="button"
+        href="https://t.me/share/url?url=[Registration%20Link]&text=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20À%20bientôt!"
+        target="_blank"
+      >
+        <img src="icons/telegram.png" alt="Telegram" /> Telegram
+      </a>
+      <a
+        class="button"
+        href="sms:?&body=Viens%20à%20Vaour%20c'est%20cool%20!%20Rejoins%20moi%20à%20l'événement%20le%20[Event%20Date]%20à%20[Event%20Location].%20C'est%20vraiment%20génial%20!%20Voici%20le%20lien%20pour%20s'inscrire:%20[Registration%20Link].%20À%20bientôt!"
+        target="_blank"
+      >
+        <img src="icons/sms.png" alt="SMS" /> SMS
+      </a>
+      <a class="button" href="#" onclick="shareViaPlatform('instagram')">
+        <img src="icons/instagram.png" alt="Instagram" /> Instagram
+      </a>
+      <a class="button" href="#" onclick="shareViaPlatform('messenger')">
+        <img src="icons/messenger.png" alt="Messenger" /> Messenger
+      </a>
+    </div>
     <script>
       function copyToClipboard(platform) {
         const message =
