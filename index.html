@@ -53,8 +53,7 @@
   <body>
     <h1>Invite tes amis à Vaour !</h1>
     <p class="p_left">
-      Sélectionne la plateforme avec laquelle tu veux partager le message en
-      cliquant sur l'une des options suivantes:
+      Sélectionne la plateforme avec laquelle tu veux partager:
     </p>
     <div class="buttons">
       <a
@@ -78,30 +77,48 @@
       >
         <img src="icons/sms.png" alt="SMS" /> SMS
       </a>
-      <a class="button" href="#" onclick="copyToClipboard('instagram')">
-        <img src="icons/instagram.png" alt="Instagram" /> Instagram
-      </a>
-      <a class="button" href="#" onclick="copyToClipboard('messenger')">
+      <a class="button" href="#" onclick="copyToClipboard()">
         <img src="icons/messenger.png" alt="Messenger" /> Messenger
       </a>
     </div>
     <script>
-      function copyToClipboard(platform) {
-        const message =
-          "Salut 👋,\nDans un mois, c’est les Rencontres des listes et communes participatives du Réseau d’Actions Communes ☀️ et je t'envoie ce message car je souhaite t'y inviter 😊\n\nCe sont 4 jours d’ateliers, de formations et de partages pour lancer la dynamique vers la victoire de centaines de collectifs d’habitantes et d’habitants dans leur commune lors des élections municipales en 2026.\n\nPourquoi j'estime que c’est crucial ?  Parce que je suis convaincu·e que la transformation démocratique doit émerger des citoyennes et citoyens. Pour moi, l’échelle locale offre des solutions concrètes pour transformer nos territoires et renforcer les pratiques citoyennes face aux limites des institutions traditionnelles où le pouvoir est centralisé.\n\nPendant ces 4 jours, il y aura des ateliers et des conférences sur des thèmes comme :\n* Lancer une liste participative pour 2026 🗳️\n* Transformer les politiques publiques locales 🌱\n* Soutenir le pouvoir habitant et créer des mouvements citoyens 💪\n* Le soin et la prévention des oppressions\n\nC’est ouvert à tous ! Il n’est pas obligatoire de faire partie d'une liste ou d’envisager d’en rejoindre une pour participer ! Beaucoup viennent simplement pour apprendre et se renseigner sur la démocratie directe et le champs des possibles pour reprendre du pouvoir dans nos territoires.\n\nQuand ? du 22 au 24 août 📆\nOù ? Vaour dans le Tarn 📍\n\nPour plus d’infos et pour s’inscrire, je te conseille de visiter le site : https://www.helloasso.com/associations/actions-communes/evenements/municipales-2026-la-mairie-est-a-vous-les-inscriptions-sont-ouvertes ou le canal Telegram : t.me/lamairieestavous\n\nOn peut aussi en parler directement 😉\nN’hésite pas à me dire si tu as des questions ! 💬\nÀ bientôt !";
+      function copyToClipboard() {
+        const message = `Salut 👋,
+    Dans un mois, c’est les Rencontres des listes et communes participatives du Réseau d’Actions Communes ☀️ et je t'envoie ce message car je souhaite t'y inviter 😊
+    
+    Ce sont 4 jours d’ateliers, de formations et de partages pour lancer la dynamique vers la victoire de centaines de collectifs d’habitantes et d’habitants dans leur commune lors des élections municipales en 2026.
+    
+    Pourquoi j'estime que c’est crucial ?  Parce que je suis convaincu·e que la transformation démocratique doit émerger des citoyennes et citoyens. Pour moi, l’échelle locale offre des solutions concrètes pour transformer nos territoires et renforcer les pratiques citoyennes face aux limites des institutions traditionnelles où le pouvoir est centralisé.
+    
+    Pendant ces 4 jours, il y aura des ateliers et des conférences sur des thèmes comme :
+    * Lancer une liste participative pour 2026 🗳️
+    * Transformer les politiques publiques locales 🌱
+    * Soutenir le pouvoir habitant et créer des mouvements citoyens 💪
+    * Le soin et la prévention des oppressions
+    
+    C’est ouvert à tous ! Il n’est pas obligatoire de faire partie d'une liste ou d’envisager d’en rejoindre une pour participer ! Beaucoup viennent simplement pour apprendre et se renseigner sur la démocratie directe et le champs des possibles pour reprendre du pouvoir dans nos territoires.
+    
+    Quand ? du 22 au 24 août 📆
+    Où ? Vaour dans le Tarn 📍
+    
+    Pour plus d’infos et pour s’inscrire, je te conseille de visiter le site : https://www.helloasso.com/associations/actions-communes/evenements/municipales-2026-la-mairie-est-a-vous-les-inscriptions-sont-ouvertes ou le canal Telegram : t.me/lamairieestavous
+    
+    On peut aussi en parler directement 😉
+    N’hésite pas à me dire si tu as des questions ! 💬
+    À bientôt !`;
+
         const textarea = document.createElement("textarea");
         textarea.value = message;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand("copy");
         document.body.removeChild(textarea);
-        alert("Message copié. Redirection vers " + platform + "...");
+        alert("Message copié.");
 
-        if (platform === "instagram") {
-          window.location.href = "https://www.instagram.com/";
-        } else if (platform === "messenger") {
-          window.location.href = "https://www.messenger.com/";
-        }
+        // Redirect to Facebook Messenger
+        const encodedMessage = encodeURIComponent(message);
+        const messengerShareUrl = `https://www.messenger.com/t/?text=${encodedMessage}`;
+        window.location.href = messengerShareUrl;
       }
     </script>
   </body>
